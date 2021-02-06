@@ -7,10 +7,21 @@
 // Set the zIndex of the token that was just selected to 1.
 
 Hooks.on('controlToken', (token, result) => {
-    let token_id = token.id;
-    let scene_id = game.scenes.viewed.id;
-    let data = {"token_id":token_id, "scene_id":scene_id}
-    game.socket.emit("module.zsync", data);
+    if (result === true){
+        let token_id = token.id;
+        let scene_id = game.scenes.viewed.id;
+        let data = {"token_id":token_id, "scene_id":scene_id}
+
+        canvas.tokens.placeables.forEach(token=>{
+            if (token.id==token_id){
+                token.zIndex = 1;
+            } else {
+                token.zIndex = 0;
+            }
+        })
+        game.socket.emit("module.zsync", data);
+        
+    }
 })
 
 Hooks.once('ready', async function () {
