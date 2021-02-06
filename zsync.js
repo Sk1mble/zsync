@@ -21,7 +21,6 @@ Hooks.once('ready', async function () {
             if (game.scenes.viewed.id == scene_id){
                 canvas.tokens.placeables.forEach(token=>{
                     if (token.id==token_id){
-                        console.log(token)
                         token.zIndex = 1;
                     } else {
                         token.zIndex = 0;
