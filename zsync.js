@@ -10,17 +10,8 @@ Hooks.on('controlToken', (token, result) => {
     if (result === true){
         let token_id = token.id;
         let scene_id = game.scenes.viewed.id;
-        let data = {"token_id":token_id, "scene_id":scene_id}
-
-        canvas.tokens.placeables.forEach(token=>{
-            if (token.id==token_id){
-                token.zIndex = 1;
-            } else {
-                token.zIndex = 0;
-            }
-        })
+        let data = {"token_id":token_id, "scene_id":scene_id, "sort":token.document.sort, "elevation":token.document.elevation}
         game.socket.emit("module.zsync", data);
-        
     }
 })
 
@@ -32,9 +23,11 @@ Hooks.once('ready', async function () {
             if (game.scenes.viewed.id == scene_id){
                 canvas.tokens.placeables.forEach(token=>{
                     if (token.id==token_id){
-                        token.zIndex = 1;
+                        token.document.sort = data.sort;
                     } else {
-                        token.zIndex = 0;
+                        if (token.document.elevation == data.elevation) {
+                            if (data.sort == 1) token.document.sort = 0;
+                        }
                     }
                 })
             }
