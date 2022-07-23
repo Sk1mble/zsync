@@ -16,8 +16,8 @@
   "id": "zsync",
   "name":"zsync",
   "compatibility": {
-    "minimum": "10.273",
-    "verified": "10.273"
+    "minimum": "10.275",
+    "verified": "10.275"
   },
-  "minimumCoreVersion":"10.270"
+  "minimumCoreVersion":"10.275"
 }
