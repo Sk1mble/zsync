@@ -6,13 +6,13 @@
       "name": "Richard Bellingham (Skimble)"
     }
   ],
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": [
     "zsync.js"
   ],
   "socket": true,
   "manifest": "https://raw.githubusercontent.com/Sk1mble/zsync/master/module.json",
-  "download": "https://github.com/Sk1mble/zsync/archive/v0.0.5.zip",
+  "download": "https://github.com/Sk1mble/zsync/archive/v0.0.6.zip",
   "id": "zsync",
   "name":"zsync",
   "compatibility": {
